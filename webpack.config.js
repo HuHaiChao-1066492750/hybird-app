@@ -149,7 +149,14 @@ let config = function (env) {
         headers: {
           "Access-Control-Allow-Origin": "*"
         },
-        host: "0.0.0.0"
+        host: "0.0.0.0",
+        proxy:{ /* 实现跨域 */
+          '/test/*': { /* 匹配 '/test/*' 这种格式的API的域名重定向为 'http://39.108.78.23:8080' */
+            target: 'http://39.108.78.23:8080',
+            changeOrigin: true,
+            secure: false,
+        }
+        }
       }
       returner.plugins.push(new webpack.NamedModulesPlugin())
     } else if (typeof env.release !== 'undefined' && env.release) {

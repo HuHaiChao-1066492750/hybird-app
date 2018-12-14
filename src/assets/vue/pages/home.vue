@@ -45,6 +45,10 @@
     </f7-page>
 </template>
 <script>
-export default {};
+export default {
+    mounted(){
+        
+    }
+};
 
 </script>

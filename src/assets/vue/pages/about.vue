@@ -8,9 +8,24 @@
       <p>Framework7 is not compatible with all platforms. It is focused only on iOS and Android (Material) to bring the best experience and simplicity.</p>
       <p>Framework7 is definitely for you if you decide to build iOS and Android hybrid app (PhoneGap) or web app that looks like and feels as great native iOS or Android (Material) apps.</p>
     </f7-block>
+    <ul>
+      <li>咖啡</li>
+      <li>茶</li>
+      <li>牛奶</li>
+    </ul>
+    <f7-button @click="routerList">按钮</f7-button>
   </f7-page>
 </template>
 <script>
- export default {
-  };
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    routerList() {
+      this.$f7.dialog.alert(this.$f7.utils.now());
+    }
+  },
+  mounted() {}
+};
 </script>

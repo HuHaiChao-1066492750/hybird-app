@@ -1,5 +1,5 @@
 <template>
-  <f7-page>
+  <f7-page data-page="hhc" name="hhc" :data-my-this="myThis" @page:beforein="beforein">
     <f7-navbar title="Form components" back-link="Back"></f7-navbar>
     <div class="block block-strong">
       <p>With forms storage it is easy to store and parse form data, especially on Ajax loaded pages. All you need to make it work is to add "form-store-data" class to your &lt;form&gt; and Framework7 will store form data with every input change. And the most awesome part is that when you load this page again Framework7 will parse this data and fill all form fields automatically!</p>
@@ -102,13 +102,34 @@
   </f7-page>
 </template>
 <script>
-  import { f7Navbar, f7Page, f7BlockTitle } from 'framework7-vue';
+import { f7Navbar, f7Page, f7BlockTitle } from "framework7-vue";
 
-  export default {
-    components: {
-      f7Navbar,
-      f7Page,
-      f7BlockTitle,
+export default {
+  data(){
+    return {
+      myThis:this,
+      sex:"男",
+    }
+  },
+  components: {
+    f7Navbar,
+    f7Page,
+    f7BlockTitle
+  },
+  mounted() {
+    // console.log(document.getElementsByClassName("page").name);
+    this.myThis=this;
+    var page = this.$$('.page[data-name="hhc"]')[0];
+    
+  },methods:{
+    beforein(){
+      console.log("页面的beforein");
+      console.log(this.myThis);
     },
-  };
+    showMsg(){
+      this.sex="女";
+      console.log(this.sex);
+    }
+  }
+};
 </script>
